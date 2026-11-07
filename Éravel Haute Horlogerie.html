@@ -1,0 +1,1873 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      html {
+        scroll-padding-top: env(safe-area-inset-top, 0px);
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        font:
+          14px -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        background: #fff;
+        color: #000;
+      }
+      img {
+        max-width: 100%;
+      }
+      [hidden]:not([hidden="until-found" i]) {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <title>Éravel Haute Horlogerie</title>
+    <meta name="claude:viewport-fit-sides" content="cover" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600&family=Montserrat:wght@400;500;600&display=swap"
+    />
+    <style>
+      /* Layout: editorial dark product story — oversized serif over a live, cropped watch; hairlines, wide margins, one scroll-driven moment (the rotor). */
+      :root {
+        --bg: #101010;
+        --deep: #0a0a0a;
+        --surface: #1c1c1c;
+        --gold: #d6c5a5;
+        --gold-dim: #a8997c;
+        --fg: #f2efe9;
+        --muted: #9a958c;
+        --line: rgba(242, 239, 233, 0.12);
+        --line-strong: rgba(242, 239, 233, 0.24);
+        --ruby: #8e2234;
+        --f-display:
+          "Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif;
+        --f-body: "Manrope", "Segoe UI", system-ui, sans-serif;
+        --f-label: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+        --gutter: clamp(16px, 4vw, 56px);
+        --ease: cubic-bezier(0.2, 0.7, 0.1, 1);
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--fg);
+        font-family: var(--f-body);
+        font-size: 16px;
+        line-height: 1.6;
+        font-weight: 300;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0 0 auto;
+        height: env(safe-area-inset-top, 0px);
+        z-index: 60;
+        background: var(--bg);
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      ::selection {
+        background: var(--gold);
+        color: var(--deep);
+      }
+      :focus-visible {
+        outline: 1px solid var(--gold);
+        outline-offset: 4px;
+      }
+      .wrap {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding-left: max(var(--gutter), env(safe-area-inset-left, 0px));
+        padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
+      }
+      .label {
+        font-family: var(--f-label);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .label.gold {
+        color: var(--gold);
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: var(--f-display);
+        font-weight: 300;
+        margin: 0;
+        text-wrap: balance;
+        letter-spacing: -0.01em;
+      }
+      p {
+        margin: 0;
+      }
+
+      /* ---------- Header ---------- */
+      .hdr {
+        position: sticky;
+        top: env(safe-area-inset-top, 0px);
+        z-index: 50;
+        transition:
+          background 0.5s var(--ease),
+          border-color 0.5s var(--ease);
+        border-bottom: 1px solid transparent;
+      }
+      .hdr.solid {
+        background: rgba(16, 16, 16, 0.82);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-color: var(--line);
+      }
+      .hdr .wrap {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        height: 76px;
+        gap: 24px;
+      }
+      .logo {
+        font-family: var(--f-display);
+        font-size: 26px;
+        font-weight: 400;
+        letter-spacing: 0.32em;
+        justify-self: start;
+      }
+      .logo span {
+        color: var(--gold);
+      }
+      .nav {
+        display: flex;
+        gap: 40px;
+      }
+      .nav a {
+        font-family: var(--f-label);
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted);
+        position: relative;
+        padding-block: 6px;
+        transition: color 0.3s;
+      }
+      .nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background: var(--gold);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.5s var(--ease);
+      }
+      .nav a:hover {
+        color: var(--fg);
+      }
+      .nav a:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--f-label);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        padding: 15px 26px;
+        border: 1px solid var(--gold);
+        color: var(--deep);
+        background: var(--gold);
+        border-radius: 999px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+        transition: color 0.5s var(--ease);
+      }
+      .btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--bg);
+        transform: translateY(101%);
+        transition: transform 0.5s var(--ease);
+        z-index: -1;
+      }
+      .btn:hover {
+        color: var(--gold);
+      }
+      .btn:hover::before {
+        transform: translateY(0);
+      }
+      .btn.ghost {
+        background: transparent;
+        color: var(--fg);
+        border-color: var(--line-strong);
+      }
+      .btn.ghost::before {
+        background: var(--gold);
+      }
+      .btn.ghost:hover {
+        color: var(--deep);
+        border-color: var(--gold);
+      }
+      .btn .arr {
+        transition: transform 0.5s var(--ease);
+      }
+      .btn:hover .arr {
+        transform: translateX(4px);
+      }
+      .hdr .btn {
+        justify-self: end;
+        padding: 12px 22px;
+      }
+
+      /* ---------- Hero ---------- */
+      .hero {
+        position: relative;
+        overflow: hidden;
+        margin-top: -76px;
+        padding-top: 76px;
+        min-height: clamp(680px, 96vh, 1000px);
+        display: flex;
+      }
+      .hero .glow {
+        position: absolute;
+        right: -10%;
+        top: 10%;
+        width: 70vw;
+        height: 70vw;
+        max-width: 1100px;
+        max-height: 1100px;
+        background: radial-gradient(
+          closest-side,
+          rgba(214, 197, 165, 0.13),
+          rgba(214, 197, 165, 0.03) 55%,
+          transparent
+        );
+        pointer-events: none;
+      }
+      .hero-watch {
+        position: absolute;
+        right: -9vw;
+        top: 50%;
+        transform: translateY(-50%);
+        width: min(66vw, 980px);
+        aspect-ratio: 680/1040;
+        pointer-events: none;
+        animation: watchIn 2.2s var(--ease) both;
+      }
+      .hero-watch svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+        filter: drop-shadow(0 60px 80px rgba(0, 0, 0, 0.7));
+      }
+      @keyframes watchIn {
+        from {
+          opacity: 0;
+          transform: translateY(-46%) scale(0.96);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(-50%) scale(1);
+        }
+      }
+      .hero .wrap {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-block: 48px 56px;
+        gap: 48px;
+      }
+      .hero-top {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        max-width: 340px;
+      }
+      .hero-top .rule {
+        width: 56px;
+        height: 1px;
+        background: var(--gold);
+      }
+      .hero h1 {
+        font-size: clamp(58px, 10.4vw, 176px);
+        line-height: 0.86;
+        letter-spacing: -0.035em;
+        font-weight: 300;
+        text-transform: uppercase;
+      }
+      .hero h1 .line {
+        display: block;
+        overflow: hidden;
+        padding-bottom: 0.04em;
+      }
+      .hero h1 .line > span {
+        display: inline-block;
+        animation: rise 1.4s var(--ease) both;
+      }
+      .hero h1 .line:nth-child(2) > span {
+        animation-delay: 0.12s;
+      }
+      .hero h1 em {
+        font-style: italic;
+        text-transform: none;
+        color: var(--gold);
+        font-weight: 300;
+        letter-spacing: -0.02em;
+      }
+      @keyframes rise {
+        from {
+          transform: translateY(105%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+      .hero-bottom {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+        align-items: end;
+        gap: 40px;
+      }
+      .hero-offer {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        max-width: 440px;
+        margin-top: 28px;
+      }
+      .hero-offer p {
+        color: var(--muted);
+        font-size: 17px;
+      }
+      .hero-offer .cta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .hero-meta {
+        justify-self: end;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        min-width: 0;
+      }
+      .hero-meta .clock {
+        font-family: var(--f-label);
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        color: var(--fg);
+        font-variant-numeric: tabular-nums;
+      }
+      .hero-meta .clock b {
+        font-weight: 500;
+        color: var(--gold);
+      }
+
+      /* ---------- Ticker ---------- */
+      .ticker {
+        border-block: 1px solid var(--line);
+        overflow: hidden;
+        padding-block: 20px;
+        background: var(--deep);
+      }
+      .ticker-track {
+        display: flex;
+        gap: 56px;
+        width: max-content;
+        animation: tick 48s linear infinite;
+      }
+      .ticker span {
+        font-family: var(--f-display);
+        font-style: italic;
+        font-size: 24px;
+        color: var(--muted);
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        gap: 56px;
+      }
+      .ticker span::after {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border: 1px solid var(--gold);
+        transform: rotate(45deg);
+      }
+      @keyframes tick {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ---------- Sections ---------- */
+      section.block {
+        padding-block: clamp(96px, 13vw, 180px);
+      }
+      .sec-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 40px;
+        align-items: end;
+        margin-bottom: clamp(48px, 6vw, 88px);
+      }
+      .sec-head h2 {
+        font-size: clamp(42px, 6vw, 92px);
+        line-height: 0.95;
+      }
+      .sec-head h2 em {
+        font-style: italic;
+        color: var(--gold);
+      }
+      .sec-head p {
+        color: var(--muted);
+        max-width: 420px;
+        justify-self: end;
+        font-size: 16px;
+      }
+      .sec-head .label {
+        grid-column: 1/-1;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .sec-head .label::before {
+        content: "";
+        width: 40px;
+        height: 1px;
+        background: var(--gold);
+      }
+
+      /* Collection */
+      .models {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: clamp(12px, 1.6vw, 24px);
+      }
+      .model {
+        background: var(--surface);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid transparent;
+        transition: border-color 0.6s var(--ease);
+      }
+      .model:hover {
+        border-color: rgba(214, 197, 165, 0.35);
+      }
+      .model .stage {
+        aspect-ratio: 4/5;
+        position: relative;
+        overflow: hidden;
+        background: radial-gradient(
+          circle at 50% 42%,
+          rgba(242, 239, 233, 0.07),
+          transparent 62%
+        );
+      }
+      .model .stage .w {
+        position: absolute;
+        inset: 6% 14% 0;
+        transition: transform 1.2s var(--ease);
+      }
+      .model:hover .stage .w {
+        transform: scale(1.06) translateY(-1.5%);
+      }
+      .model .stage svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+        filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.6));
+      }
+      .model .tag {
+        position: absolute;
+        top: 22px;
+        left: 24px;
+      }
+      .model .info {
+        padding: 26px 28px 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        border-top: 1px solid var(--line);
+      }
+      .model .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 16px;
+      }
+      .model h3 {
+        font-size: 34px;
+        line-height: 1;
+      }
+      .model h3 i {
+        color: var(--gold);
+      }
+      .model .price {
+        font-family: var(--f-label);
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        color: var(--fg);
+        white-space: nowrap;
+        font-variant-numeric: tabular-nums;
+      }
+      .model .spec {
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .model .more {
+        font-family: var(--f-label);
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold);
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-top: 4px;
+      }
+      .model .more i {
+        display: block;
+        width: 24px;
+        height: 1px;
+        background: var(--gold);
+        transition: width 0.6s var(--ease);
+      }
+      .model:hover .more i {
+        width: 48px;
+      }
+
+      /* Movement */
+      .movement {
+        background: var(--deep);
+        border-block: 1px solid var(--line);
+      }
+      .mv-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: clamp(40px, 6vw, 100px);
+        align-items: center;
+      }
+      .caseback {
+        position: relative;
+        max-width: 620px;
+        width: 100%;
+        justify-self: center;
+      }
+      .caseback svg {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .caseback .rotor {
+        transform-box: view-box;
+        transform-origin: 300px 300px;
+      }
+      .balance {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: swing 0.125s ease-in-out infinite alternate;
+      }
+      @keyframes swing {
+        from {
+          transform: rotate(-150deg);
+        }
+        to {
+          transform: rotate(150deg);
+        }
+      }
+      .mv-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+        min-width: 0;
+      }
+      .mv-copy h2 {
+        font-size: clamp(40px, 5vw, 76px);
+        line-height: 0.98;
+      }
+      .mv-copy h2 em {
+        font-style: italic;
+        color: var(--gold);
+      }
+      .mv-copy > p {
+        color: var(--muted);
+        max-width: 480px;
+      }
+      .reserve {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding-top: 28px;
+        border-top: 1px solid var(--line);
+      }
+      .reserve .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 16px;
+      }
+      .reserve .val {
+        font-family: var(--f-display);
+        font-size: 56px;
+        line-height: 1;
+        font-variant-numeric: tabular-nums;
+      }
+      .reserve .val small {
+        font-size: 22px;
+        color: var(--muted);
+        margin-left: 6px;
+      }
+      .reserve .bar {
+        height: 1px;
+        background: var(--line-strong);
+        position: relative;
+      }
+      .reserve .bar i {
+        position: absolute;
+        left: 0;
+        top: -1px;
+        height: 3px;
+        background: var(--gold);
+        width: 50%;
+        transition: width 0.4s var(--ease);
+      }
+      .reserve .scale {
+        display: flex;
+        justify-content: space-between;
+        font-family: var(--f-label);
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        color: var(--muted);
+        font-variant-numeric: tabular-nums;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-top: 1px solid var(--line);
+      }
+      .stat {
+        padding: 26px 0 24px;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .stat:nth-child(odd) {
+        padding-right: 24px;
+        border-right: 1px solid var(--line);
+      }
+      .stat:nth-child(even) {
+        padding-left: 24px;
+      }
+      .stat b {
+        font-family: var(--f-display);
+        font-weight: 300;
+        font-size: 44px;
+        line-height: 1;
+        font-variant-numeric: tabular-nums;
+      }
+      .stat b sup {
+        font-size: 0.4em;
+        color: var(--gold);
+        margin-left: 4px;
+        vertical-align: 0.9em;
+        font-family: var(--f-label);
+        letter-spacing: 0.1em;
+      }
+
+      /* Process */
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        border-top: 1px solid var(--line);
+      }
+      .step {
+        padding: 36px 28px 8px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        position: relative;
+      }
+      .step + .step {
+        padding-left: 28px;
+        border-left: 1px solid var(--line);
+      }
+      .step::before {
+        content: "";
+        position: absolute;
+        top: -1px;
+        left: 0;
+        height: 1px;
+        width: 0;
+        background: var(--gold);
+        transition: width 1s var(--ease);
+      }
+      .step:hover::before {
+        width: 100%;
+      }
+      .step .n {
+        font-family: var(--f-display);
+        font-style: italic;
+        font-size: 22px;
+        color: var(--gold);
+      }
+      .step h3 {
+        font-size: 32px;
+        line-height: 1.05;
+      }
+      .step p {
+        color: var(--muted);
+        font-size: 15px;
+      }
+      .step .dur {
+        font-family: var(--f-label);
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--fg);
+        margin-top: auto;
+        padding-top: 8px;
+      }
+
+      /* Quote */
+      .quote {
+        text-align: left;
+      }
+      .quote .wrap {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+        gap: 40px;
+      }
+      .quote blockquote {
+        margin: 0;
+        font-family: var(--f-display);
+        font-weight: 300;
+        font-size: clamp(30px, 4vw, 60px);
+        line-height: 1.12;
+        letter-spacing: -0.01em;
+        text-wrap: pretty;
+      }
+      .quote blockquote::before {
+        content: "“";
+        display: block;
+        font-size: 2em;
+        line-height: 0.6;
+        color: var(--gold);
+        margin-bottom: 12px;
+      }
+      .quote cite {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        margin-top: 40px;
+        font-style: normal;
+      }
+      .quote cite i {
+        width: 40px;
+        height: 1px;
+        background: var(--gold);
+      }
+      .quote cite span {
+        font-family: var(--f-label);
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .quote cite b {
+        color: var(--fg);
+        font-weight: 500;
+      }
+
+      /* Final */
+      .final {
+        border-top: 1px solid var(--line);
+        position: relative;
+        overflow: hidden;
+      }
+      .final .wrap {
+        padding-block: clamp(96px, 12vw, 170px) 0;
+      }
+      .final h2 {
+        font-size: clamp(64px, 12vw, 200px);
+        line-height: 0.85;
+        letter-spacing: -0.035em;
+        text-transform: uppercase;
+      }
+      .final h2 em {
+        text-transform: none;
+        font-style: italic;
+        color: var(--gold);
+      }
+      .final-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+        gap: clamp(40px, 6vw, 100px);
+        margin-top: clamp(48px, 6vw, 88px);
+        align-items: start;
+      }
+      .final-grid > p {
+        color: var(--muted);
+        max-width: 440px;
+        font-size: 17px;
+      }
+      form.book {
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+        min-width: 0;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .field label {
+        font-family: var(--f-label);
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .field input,
+      .field select {
+        appearance: none;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid var(--line-strong);
+        color: var(--fg);
+        font-family: var(--f-display);
+        font-size: 26px;
+        padding: 6px 0 10px;
+        border-radius: 0;
+        outline: none;
+        transition: border-color 0.4s;
+        width: 100%;
+      }
+      .field select {
+        background-image:
+          linear-gradient(45deg, transparent 50%, var(--gold) 50%),
+          linear-gradient(135deg, var(--gold) 50%, transparent 50%);
+        background-position:
+          calc(100% - 12px) 55%,
+          calc(100% - 6px) 55%;
+        background-size: 6px 6px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+      }
+      .field select option {
+        background: var(--surface);
+        color: var(--fg);
+        font-family: var(--f-body);
+        font-size: 15px;
+      }
+      .field input::placeholder {
+        color: rgba(242, 239, 233, 0.28);
+      }
+      .field input:focus,
+      .field select:focus {
+        border-color: var(--gold);
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 24px;
+      }
+      .book .actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 6px;
+      }
+      .book .note {
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .book .done {
+        display: none;
+        font-family: var(--f-display);
+        font-size: 28px;
+        color: var(--gold);
+        font-style: italic;
+      }
+      .book.sent .done {
+        display: block;
+      }
+      .book.sent .fields {
+        opacity: 0.35;
+        pointer-events: none;
+      }
+      .book .fields {
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+        transition: opacity 0.6s;
+      }
+      .contacts {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+        margin-top: clamp(72px, 9vw, 130px);
+        padding-block: 40px;
+        border-top: 1px solid var(--line);
+      }
+      .contacts div {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        min-width: 0;
+      }
+      .contacts p {
+        font-size: 15px;
+        user-select: all;
+        overflow-wrap: anywhere;
+      }
+      footer .wrap {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+        padding-block: 28px;
+        border-top: 1px solid var(--line);
+      }
+      footer .label {
+        letter-spacing: 0.18em;
+      }
+
+      /* Reveal: starts visible-ish, settles in. Never hidden at rest. */
+      .rv {
+        transition:
+          transform 1.2s var(--ease),
+          opacity 1.2s var(--ease);
+      }
+      .js .rv.pre {
+        transform: translateY(28px);
+        opacity: 0.25;
+      }
+
+      /* ---------- Responsive ---------- */
+      @media (max-width: 1024px) {
+        .models {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .models .model:last-child {
+          grid-column: 1/-1;
+        }
+        .models .model:last-child .stage {
+          aspect-ratio: 16/9;
+        }
+        .models .model:last-child .stage .w {
+          inset: 4% 30% 0;
+        }
+        .steps {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .step:nth-child(3) {
+          border-left: 0;
+          padding-left: 0;
+        }
+        .step:nth-child(n + 3) {
+          border-top: 1px solid var(--line);
+          margin-top: 24px;
+        }
+      }
+      @media (max-width: 820px) {
+        .nav {
+          display: none;
+        }
+        .hdr .wrap {
+          grid-template-columns: 1fr auto;
+        }
+        .hero {
+          min-height: 0;
+          flex-direction: column;
+        }
+        .hero-watch {
+          position: relative;
+          right: auto;
+          top: auto;
+          transform: none;
+          width: 118%;
+          margin: -40px -9% -120px;
+          animation: fadeIn 1.6s var(--ease) both;
+          aspect-ratio: 680/820;
+        }
+        .hero-watch svg {
+          object-fit: cover;
+        }
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        .hero .glow {
+          right: -30%;
+          top: 0;
+          width: 140vw;
+          height: 140vw;
+        }
+        .hero .wrap {
+          padding-block: 0 48px;
+        }
+        .hero-top {
+          display: none;
+        }
+        .hero-bottom {
+          grid-template-columns: 1fr;
+        }
+        .hero-meta {
+          justify-self: start;
+        }
+        .sec-head {
+          grid-template-columns: 1fr;
+        }
+        .sec-head p {
+          justify-self: start;
+        }
+        .mv-grid {
+          grid-template-columns: 1fr;
+        }
+        .quote .wrap {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+        .final-grid {
+          grid-template-columns: 1fr;
+        }
+        .contacts {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .models {
+          grid-template-columns: 1fr;
+        }
+        .models .model:last-child .stage {
+          aspect-ratio: 4/5;
+        }
+        .models .model:last-child .stage .w {
+          inset: 6% 14% 0;
+        }
+        .steps {
+          grid-template-columns: 1fr;
+        }
+        .step,
+        .step + .step {
+          padding-left: 0;
+          border-left: 0;
+        }
+        .step + .step {
+          border-top: 1px solid var(--line);
+          margin-top: 24px;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .hdr .btn {
+          padding: 10px 16px;
+        }
+        .logo {
+          font-size: 22px;
+        }
+        .stat b {
+          font-size: 36px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+        .ticker-track {
+          animation: none;
+        }
+        .balance {
+          animation: none;
+        }
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+
+    <header class="hdr" id="hdr">
+      <div class="wrap">
+        <a class="logo" href="#top" aria-label="Éravel — на главную"
+          >ÉRAVEL<span>.</span></a
+        >
+        <nav class="nav" aria-label="Основная навигация">
+          <a href="#collection">Коллекция</a>
+          <a href="#movement">Калибр</a>
+          <a href="#atelier">Ателье</a>
+        </nav>
+        <a class="btn" href="#book">Предзаказ <span class="arr">→</span></a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="Éravel E-01">
+        <div class="glow"></div>
+        <div class="hero-watch" id="heroWatch" aria-hidden="true"></div>
+        <div class="wrap">
+          <div class="hero-top">
+            <span class="rule"></span>
+            <span class="label gold">Калибр E-01 · Серия 2027</span>
+            <span class="label"
+              >Ограниченный тираж — 300 экземпляров в год</span
+            >
+          </div>
+          <div class="hero-bottom">
+            <div>
+              <h1>
+                <span class="line"><span>Время,</span></span>
+                <span class="line"
+                  ><span>собранное <em>вручную</em></span></span
+                >
+              </h1>
+              <div class="hero-offer">
+                <p>
+                  Механические часы с автоподзаводом. Один мастер собирает весь
+                  калибр — от первой детали до регулировки хода.
+                </p>
+                <div class="cta">
+                  <a class="btn" href="#book"
+                    >Записаться на примерку <span class="arr">→</span></a
+                  >
+                  <a class="btn ghost" href="#collection">Коллекция</a>
+                </div>
+              </div>
+            </div>
+            <div class="hero-meta">
+              <span class="clock" id="clock">— : — : —</span>
+              <span class="label"
+                >Сталь 904L · сапфир · 72 часа<br />запаса хода · ±2
+                с/сутки</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <span>Côtes de Genève</span><span>28 800 полуколебаний в час</span
+          ><span>31 камень</span><span>Регулировка в шести положениях</span
+          ><span>Ротор из золота 18 карат</span><span>Перлаж вручную</span>
+          <span>Côtes de Genève</span><span>28 800 полуколебаний в час</span
+          ><span>31 камень</span><span>Регулировка в шести положениях</span
+          ><span>Ротор из золота 18 карат</span><span>Перлаж вручную</span>
+        </div>
+      </div>
+
+      <section class="block" id="collection">
+        <div class="wrap">
+          <div class="sec-head rv">
+            <span class="label gold">Коллекция</span>
+            <h2>Три характера <em>одного</em> калибра</h2>
+            <p>
+              Один механизм E-01, три циферблата. Каждый эмалируется и
+              полируется вручную, поэтому двух одинаковых экземпляров не бывает.
+            </p>
+          </div>
+          <div class="models">
+            <article class="model rv">
+              <div class="stage">
+                <span class="tag label">Графит</span>
+                <div class="w" data-watch="nocturne"></div>
+              </div>
+              <div class="info">
+                <div class="row">
+                  <h3>Nocturne <i>39</i></h3>
+                  <span class="price">от 1 280 000 ₽</span>
+                </div>
+                <p class="spec">
+                  Санрей-циферблат цвета графита, накладные индексы с
+                  золочением, ремень из кожи аллигатора.
+                </p>
+                <a class="more" href="#book">Выбрать <i></i></a>
+              </div>
+            </article>
+            <article class="model rv">
+              <div class="stage">
+                <span class="tag label">Шампань</span>
+                <div class="w" data-watch="meridien"></div>
+              </div>
+              <div class="info">
+                <div class="row">
+                  <h3>Méridien <i>41</i></h3>
+                  <span class="price">от 1 460 000 ₽</span>
+                </div>
+                <p class="spec">
+                  Гильошированный циферблат цвета шампань, синёные стрелки, окно
+                  даты на трёх часах.
+                </p>
+                <a class="more" href="#book">Выбрать <i></i></a>
+              </div>
+            </article>
+            <article class="model rv">
+              <div class="stage">
+                <span class="tag label">Гран фё</span>
+                <div class="w" data-watch="lune"></div>
+              </div>
+              <div class="info">
+                <div class="row">
+                  <h3>Lune <i>38</i></h3>
+                  <span class="price">от 1 950 000 ₽</span>
+                </div>
+                <p class="spec">
+                  Циферблат из эмали гран фё, обожжённый в печи двенадцать раз.
+                  Тонкий корпус 8,9 мм.
+                </p>
+                <a class="more" href="#book">Выбрать <i></i></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block movement" id="movement">
+        <div class="wrap mv-grid">
+          <div
+            class="caseback rv"
+            id="caseback"
+            aria-label="Механизм E-01 через сапфировую крышку"
+          ></div>
+          <div class="mv-copy rv">
+            <span class="label gold">Калибр E-01</span>
+            <h2>Прокрутите страницу, и ротор <em>заведёт</em> часы</h2>
+            <p>
+              Так работает автоподзавод: каждое движение запястья поворачивает
+              золотой ротор, и тот взводит пружину. Здесь вместо запястья — ваша
+              прокрутка.
+            </p>
+            <div class="reserve" aria-live="polite">
+              <div class="top">
+                <span class="label">Запас хода</span
+                ><span class="val"
+                  ><span id="resVal">36</span><small>ч</small></span
+                >
+              </div>
+              <div class="bar"><i id="resBar"></i></div>
+              <div class="scale">
+                <span>0</span><span>24</span><span>48</span><span>72 ч</span>
+              </div>
+            </div>
+            <div class="stats">
+              <div class="stat">
+                <b>212</b><span class="label">деталей в калибре</span>
+              </div>
+              <div class="stat">
+                <b>4<sup>Гц</sup></b
+                ><span class="label">частота баланса</span>
+              </div>
+              <div class="stat">
+                <b>31</b><span class="label">рубиновый камень</span>
+              </div>
+              <div class="stat">
+                <b>100<sup>м</sup></b
+                ><span class="label">водозащита</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="atelier">
+        <div class="wrap">
+          <div class="sec-head rv">
+            <span class="label gold">Ателье</span>
+            <h2>Сорок один день <em>у одного</em> мастера</h2>
+            <p>
+              Мы не делим работу на конвейер. Мастер, который начал часы,
+              доводит их до конца и ставит свои инициалы на мосту баланса.
+            </p>
+          </div>
+          <div class="steps">
+            <div class="step rv">
+              <span class="n">i.</span>
+              <h3>Обработка</h3>
+              <p>
+                Мосты и платина получают перлаж и «женевские волны». Фаски
+                полируются вручную под углом 45°.
+              </p>
+              <span class="dur">12 дней</span>
+            </div>
+            <div class="step rv">
+              <span class="n">ii.</span>
+              <h3>Сборка</h3>
+              <p>
+                212 деталей, 31 камень. Механизм собирают, разбирают для чистки
+                и собирают снова.
+              </p>
+              <span class="dur">16 дней</span>
+            </div>
+            <div class="step rv">
+              <span class="n">iii.</span>
+              <h3>Регулировка</h3>
+              <p>
+                Ход проверяют в шести положениях и трёх температурах, пока
+                отклонение не уложится в ±2 с/сутки.
+              </p>
+              <span class="dur">9 дней</span>
+            </div>
+            <div class="step rv">
+              <span class="n">iv.</span>
+              <h3>Испытание</h3>
+              <p>
+                Готовые часы носят на мотор-руке ещё четыре дня и только потом
+                отдают владельцу.
+              </p>
+              <span class="dur">4 дня</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block quote" style="padding-top: 0">
+        <div class="wrap">
+          <span class="label gold rv">Владельцы</span>
+          <div class="rv">
+            <blockquote>
+              Через год ношения они отстают на четыре секунды в месяц. Но
+              главное — я знаю имя человека, который их собрал.
+            </blockquote>
+            <cite
+              ><i></i
+              ><span><b>Владелец Nocturne 39</b> · Санкт-Петербург</span></cite
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="final" id="book">
+        <div class="wrap">
+          <h2 class="rv">Примерка<br />в <em>ателье</em></h2>
+          <div class="final-grid">
+            <p class="rv">
+              Приходите посмотреть часы вживую. Мастер покажет механизм под
+              лупой, подберёт ремень и откроет предзаказ на ваш экземпляр. Срок
+              изготовления — от девяти недель.
+            </p>
+            <form class="book rv" id="bookForm" novalidate>
+              <div class="fields">
+                <div class="form-row">
+                  <div class="field">
+                    <label for="f-name">Имя</label
+                    ><input
+                      id="f-name"
+                      name="name"
+                      autocomplete="name"
+                      placeholder="Анна"
+                      required
+                    />
+                  </div>
+                  <div class="field">
+                    <label for="f-contact">Телефон или e-mail</label
+                    ><input
+                      id="f-contact"
+                      name="contact"
+                      autocomplete="email"
+                      placeholder="+7 900 000-00-00"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="f-model">Модель</label>
+                  <select id="f-model" name="model">
+                    <option>Nocturne 39</option>
+                    <option>Méridien 41</option>
+                    <option>Lune 38</option>
+                    <option>Пока не решил(а)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="actions">
+                <button class="btn" type="submit">
+                  Записаться <span class="arr">→</span>
+                </button>
+                <span class="note" id="formNote"
+                  >Перезвоним в течение дня.</span
+                >
+              </div>
+              <p class="done" role="status">
+                Спасибо. Мастер свяжется с вами, чтобы выбрать время.
+              </p>
+            </form>
+          </div>
+          <div class="contacts">
+            <div>
+              <span class="label">Ателье</span>
+              <p>Москва, Большая Никитская, 17</p>
+            </div>
+            <div>
+              <span class="label">Часы работы</span>
+              <p>Вт–Сб, 11:00–20:00, по записи</p>
+            </div>
+            <div>
+              <span class="label">Связь</span>
+              <p>atelier@eravel.example</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span class="label">© 2026 Éravel Haute Horlogerie</span>
+        <span class="label">Концепт-макет · бренд и тексты вымышлены</span>
+      </div>
+    </footer>
+
+    <script>
+      document.documentElement.classList.add("js");
+      const NS = "http://www.w3.org/2000/svg";
+      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let uid = 0;
+
+      /* ---------- Watch drawing ---------- */
+      const THEMES = {
+        hero: {
+          dial: ["#2a2a2a", "#0c0c0c"],
+          idx: "#d6c5a5",
+          hand: ["#f2efe9", "#9d9890"],
+          sec: "#d6c5a5",
+          text: "#d6c5a5",
+          sun: 0.035,
+          strap: ["#1a1715", "#0b0a09"],
+          date: true,
+        },
+        nocturne: {
+          dial: ["#3a3a3a", "#121212"],
+          idx: "#d6c5a5",
+          hand: ["#f2efe9", "#a19c93"],
+          sec: "#d6c5a5",
+          text: "#d6c5a5",
+          sun: 0.04,
+          strap: ["#231d18", "#0e0b09"],
+        },
+        meridien: {
+          dial: ["#e9dcc0", "#a8916a"],
+          idx: "#2b2620",
+          hand: ["#3a5a8c", "#1b2c48"],
+          sec: "#1b2c48",
+          text: "#2b2620",
+          sun: 0.08,
+          strap: ["#3b2a1d", "#1a120c"],
+          date: true,
+          guilloche: true,
+        },
+        lune: {
+          dial: ["#fbf8f1", "#ddd6c8"],
+          idx: "#1a1a1a",
+          hand: ["#2a2a2a", "#000000"],
+          sec: "#8e2234",
+          text: "#1a1a1a",
+          sun: 0,
+          strap: ["#121212", "#050505"],
+          roman: true,
+        },
+      };
+
+      function makeWatch(el, key, crop) {
+        const t = THEMES[key],
+          id = "w" + uid++;
+        const C = 300,
+          vb = crop || "-40 -220 680 1040";
+        let s = `<svg viewBox="${vb}" xmlns="${NS}" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="${id}case" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7f5f0"/><stop offset=".18" stop-color="#a7a39c"/><stop offset=".42" stop-color="#2b2a28"/>
+      <stop offset=".6" stop-color="#d9d6cf"/><stop offset=".8" stop-color="#55534f"/><stop offset="1" stop-color="#cfccc5"/>
+    </linearGradient>
+    <linearGradient id="${id}bez" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5c5a56"/><stop offset=".35" stop-color="#f2efe9"/><stop offset=".55" stop-color="#3a3936"/><stop offset="1" stop-color="#b9b5ad"/>
+    </linearGradient>
+    <radialGradient id="${id}dial" cx=".42" cy=".35" r=".75">
+      <stop offset="0" stop-color="${t.dial[0]}"/><stop offset="1" stop-color="${t.dial[1]}"/>
+    </radialGradient>
+    <linearGradient id="${id}strap" x1="0" x2="1">
+      <stop offset="0" stop-color="${t.strap[1]}"/><stop offset=".5" stop-color="${t.strap[0]}"/><stop offset="1" stop-color="${t.strap[1]}"/>
+    </linearGradient>
+    <linearGradient id="${id}lug" x1="0" x2="1">
+      <stop offset="0" stop-color="#3a3936"/><stop offset=".45" stop-color="#e9e6df"/><stop offset="1" stop-color="#4a4844"/>
+    </linearGradient>
+    <linearGradient id="${id}glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="${id}clip"><circle cx="${C}" cy="${C}" r="226"/></clipPath>
+  </defs>`;
+        // strap
+        const stitch =
+          'stroke="rgba(214,197,165,.35)" stroke-width="1.5" stroke-dasharray="7 6" fill="none"';
+        s += `<path d="M196 -240 H404 V70 Q300 90 196 70 Z" fill="url(#${id}strap)"/>
+        <path d="M196 530 Q300 510 404 530 V840 H196 Z" fill="url(#${id}strap)"/>
+        <path d="M212 -240 V60 M388 -240 V60 M212 540 V840 M388 540 V840" ${stitch}/>`;
+        // lugs
+        [
+          [168, 48],
+          [392, 48],
+          [168, 482],
+          [392, 482],
+        ].forEach(([x, y]) => {
+          s += `<rect x="${x}" y="${y}" width="40" height="72" rx="10" fill="url(#${id}lug)"/>`;
+        });
+        // crown
+        s += `<rect x="552" y="266" width="40" height="68" rx="6" fill="url(#${id}lug)"/>`;
+        for (let i = 0; i < 10; i++)
+          s += `<line x1="${558 + i * 3.6}" y1="268" x2="${558 + i * 3.6}" y2="332" stroke="#1a1a1a" stroke-opacity=".5" stroke-width="1"/>`;
+        s += `<rect x="544" y="284" width="12" height="32" fill="#8a8781"/>`;
+        // case + bezel
+        s += `<circle cx="${C}" cy="${C}" r="262" fill="url(#${id}case)"/>
+        <circle cx="${C}" cy="${C}" r="246" fill="url(#${id}bez)"/>
+        <circle cx="${C}" cy="${C}" r="232" fill="#0a0a0a"/>
+        <circle cx="${C}" cy="${C}" r="228" fill="url(#${id}dial)"/>`;
+        // sunburst / guilloche
+        s += `<g clip-path="url(#${id}clip)">`;
+        if (t.sun) {
+          for (let i = 0; i < 180; i++) {
+            const a = (i * 2 * Math.PI) / 180;
+            s += `<line x1="${C}" y1="${C}" x2="${C + 240 * Math.cos(a)}" y2="${C + 240 * Math.sin(a)}" stroke="${i % 2 ? "#fff" : "#000"}" stroke-opacity="${t.sun}" stroke-width="1.2"/>`;
+          }
+        }
+        if (t.guilloche) {
+          for (let r = 40; r < 150; r += 6)
+            s += `<circle cx="${C}" cy="${C}" r="${r}" fill="none" stroke="#000" stroke-opacity=".08" stroke-width="1"/>`;
+        }
+        s += `</g>`;
+        // minute track
+        for (let i = 0; i < 60; i++) {
+          const a = (i * 6 * Math.PI) / 180,
+            r1 = i % 5 ? 216 : 210,
+            r2 = 222;
+          s += `<line x1="${C + r1 * Math.sin(a)}" y1="${C - r1 * Math.cos(a)}" x2="${C + r2 * Math.sin(a)}" y2="${C - r2 * Math.cos(a)}" stroke="${t.idx}" stroke-opacity="${i % 5 ? 0.45 : 0.9}" stroke-width="${i % 5 ? 1 : 2}"/>`;
+        }
+        // indices
+        const romans = [
+          "XII",
+          "I",
+          "II",
+          "III",
+          "IIII",
+          "V",
+          "VI",
+          "VII",
+          "VIII",
+          "IX",
+          "X",
+          "XI",
+        ];
+        for (let h = 0; h < 12; h++) {
+          if (t.date && h === 3) continue;
+          const deg = h * 30;
+          if (t.roman) {
+            const a = (deg * Math.PI) / 180,
+              r = 176;
+            s += `<text x="${C + r * Math.sin(a)}" y="${C - r * Math.cos(a) + 12}" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="${h === 0 ? 40 : 34}" fill="${t.idx}" transform="rotate(${deg} ${C + r * Math.sin(a)} ${C - r * Math.cos(a)})">${romans[h]}</text>`;
+          } else if (h === 0) {
+            s += `<g transform="rotate(0 ${C} ${C})"><rect x="${C - 13}" y="${C - 202}" width="9" height="46" fill="${t.idx}"/><rect x="${C + 4}" y="${C - 202}" width="9" height="46" fill="${t.idx}"/></g>`;
+          } else {
+            s += `<g transform="rotate(${deg} ${C} ${C})"><rect x="${C - 4.5}" y="${C - 202}" width="9" height="38" fill="${t.idx}"/><rect x="${C - 4.5}" y="${C - 202}" width="4.5" height="38" fill="#fff" fill-opacity=".25"/></g>`;
+          }
+        }
+        // date window
+        if (t.date) {
+          s += `<rect x="404" y="286" width="44" height="28" rx="2" fill="#0a0a0a" stroke="${t.idx}" stroke-width="1.5"/>
+          <rect x="407" y="289" width="38" height="22" fill="#f2efe9"/>
+          <text class="dt" x="426" y="307" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-weight="600" font-size="16" fill="#111">07</text>`;
+        }
+        // brand text
+        s += `<text x="${C}" y="${t.roman ? 232 : 218}" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="28" letter-spacing="9" fill="${t.text}">ÉRAVEL</text>
+        <text x="${C}" y="${t.roman ? 400 : 396}" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="10" letter-spacing="4" fill="${t.text}" fill-opacity=".7">AUTOMATIQUE · E-01</text>`;
+        // hands
+        const [hl, hd] = t.hand;
+        s += `<g class="hh"><polygon points="300,160 311,300 300,318" fill="${hl}"/><polygon points="300,160 289,300 300,318" fill="${hd}"/></g>
+        <g class="mh"><polygon points="300,92 308,300 300,322" fill="${hl}"/><polygon points="300,92 292,300 300,322" fill="${hd}"/></g>
+        <g class="sh"><line x1="300" y1="350" x2="300" y2="86" stroke="${t.sec}" stroke-width="2.2"/><circle cx="300" cy="340" r="7" fill="${t.sec}"/></g>
+        <circle cx="300" cy="300" r="9" fill="${t.sec}"/><circle cx="300" cy="300" r="3.5" fill="#0a0a0a"/>`;
+        // crystal reflection
+        s += `<path d="M110 190 A228 228 0 0 1 430 96 Q290 170 110 190 Z" fill="url(#${id}glass)"/>
+        <circle cx="${C}" cy="${C}" r="228" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="2"/>`;
+        s += `</svg>`;
+        el.innerHTML = s;
+        return {
+          h: el.querySelector(".hh"),
+          m: el.querySelector(".mh"),
+          s: el.querySelector(".sh"),
+          d: el.querySelector(".dt"),
+        };
+      }
+
+      const watches = [];
+      watches.push(makeWatch(document.getElementById("heroWatch"), "hero"));
+      document
+        .querySelectorAll("[data-watch]")
+        .forEach((el) =>
+          watches.push(makeWatch(el, el.dataset.watch, "-50 -60 700 720")),
+        );
+
+      // On phones the hero watch sits above the headline: show it less tall.
+      function heroCrop() {
+        const svg = document.querySelector("#heroWatch svg");
+        if (!svg) return;
+        svg.setAttribute(
+          "viewBox",
+          innerWidth <= 820 ? "-40 -110 680 820" : "-40 -220 680 1040",
+        );
+      }
+      heroCrop();
+      addEventListener("resize", heroCrop);
+
+      /* ---------- Time: 4 Hz sweep, like a real 28 800 vph movement ---------- */
+      const clock = document.getElementById("clock");
+      const pad = (n) => String(n).padStart(2, "0");
+      let lastClock = "";
+      function tick() {
+        const now = new Date();
+        const ms = now.getMilliseconds();
+        const sec = now.getSeconds() + (reduce ? 0 : Math.floor(ms / 125) / 8);
+        const min = now.getMinutes() + sec / 60;
+        const hr = (now.getHours() % 12) + min / 60;
+        for (const w of watches) {
+          w.h.setAttribute("transform", `rotate(${hr * 30} 300 300)`);
+          w.m.setAttribute("transform", `rotate(${min * 6} 300 300)`);
+          w.s.setAttribute("transform", `rotate(${sec * 6} 300 300)`);
+          if (w.d) w.d.textContent = pad(now.getDate());
+        }
+        const c = `<b>${pad(now.getHours())}:${pad(now.getMinutes())}</b>:${pad(now.getSeconds())} · ваше время`;
+        if (c !== lastClock) {
+          clock.innerHTML = c;
+          lastClock = c;
+        }
+        reduce ? setTimeout(tick, 1000 - ms) : requestAnimationFrame(tick);
+      }
+      tick();
+
+      /* ---------- Caseback with movement ---------- */
+      (function caseback() {
+        const C = 300;
+        let s = `<svg viewBox="0 0 600 600" xmlns="${NS}" role="img" aria-label="Механизм E-01: мосты с женевскими волнами, баланс и золотой ротор">
+  <defs>
+    <linearGradient id="cbCase" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9e6df"/><stop offset=".3" stop-color="#4a4844"/><stop offset=".55" stop-color="#cfccc5"/><stop offset="1" stop-color="#2e2d2b"/></linearGradient>
+    <pattern id="cotes" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(-28)">
+      <rect width="34" height="34" fill="#8f8b84"/>
+      <rect width="17" height="34" fill="#c9c5bd"/><rect x="6" width="4" height="34" fill="#e7e3dc"/>
+    </pattern>
+    <radialGradient id="perl" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#b9b5ad"/><stop offset="1" stop-color="#6b6862"/></radialGradient>
+    <linearGradient id="rotorG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1e2c2"/><stop offset=".4" stop-color="#b39a6a"/><stop offset=".7" stop-color="#e7d4ad"/><stop offset="1" stop-color="#8a7448"/></linearGradient>
+    <clipPath id="cbWin"><circle cx="${C}" cy="${C}" r="236"/></clipPath>
+    <path id="rotorArc" d="M ${C - 180} ${C} A 180 180 0 0 1 ${C + 180} ${C}"/>
+  </defs>
+  <circle cx="${C}" cy="${C}" r="290" fill="url(#cbCase)"/>
+  <circle cx="${C}" cy="${C}" r="262" fill="#151515"/>`;
+        // screws on case back
+        for (let i = 0; i < 6; i++) {
+          const a = (i * Math.PI) / 3 + Math.PI / 6,
+            x = C + 276 * Math.cos(a),
+            y = C + 276 * Math.sin(a);
+          s += `<circle cx="${x}" cy="${y}" r="7" fill="#2a2928"/><line x1="${x - 5}" y1="${y}" x2="${x + 5}" y2="${y}" stroke="#8a8781" stroke-width="2" transform="rotate(${i * 40} ${x} ${y})"/>`;
+        }
+        s += `<g clip-path="url(#cbWin)">
+    <circle cx="${C}" cy="${C}" r="236" fill="url(#perl)"/>`;
+        // perlage dots on main plate
+        for (let r = 40; r < 236; r += 22) {
+          const n = Math.floor((2 * Math.PI * r) / 22);
+          for (let i = 0; i < n; i++) {
+            const a = (i * 2 * Math.PI) / n + r;
+            s += `<circle cx="${C + r * Math.cos(a)}" cy="${C + r * Math.sin(a)}" r="10" fill="none" stroke="#fff" stroke-opacity=".07"/>`;
+          }
+        }
+        // bridges with Côtes de Genève
+        s += `<path d="M70 210 Q160 120 300 110 Q440 120 520 200 L470 250 Q390 190 300 186 Q210 190 130 260 Z" fill="url(#cotes)" stroke="#55524d" stroke-width="2"/>
+        <path d="M100 330 Q170 300 230 330 L260 470 Q190 500 130 460 Z" fill="url(#cotes)" stroke="#55524d" stroke-width="2"/>
+        <path d="M330 300 L500 300 Q520 420 440 470 L340 420 Z" fill="url(#cotes)" stroke="#55524d" stroke-width="2"/>`;
+        // jewels
+        [
+          [160, 180],
+          [300, 148],
+          [440, 180],
+          [170, 360],
+          [210, 440],
+          [350, 330],
+          [470, 330],
+          [300, 300],
+        ].forEach(([x, y]) => {
+          s += `<circle cx="${x}" cy="${y}" r="10" fill="#d9d5cd"/><circle cx="${x}" cy="${y}" r="6.5" fill="#8e2234"/><circle cx="${x - 2}" cy="${y - 2}" r="2" fill="#fff" fill-opacity=".6"/>`;
+        });
+        // screws on bridges
+        [
+          [110, 230],
+          [490, 215],
+          [120, 430],
+          [480, 420],
+          [250, 452],
+        ].forEach(([x, y], i) => {
+          s += `<circle cx="${x}" cy="${y}" r="9" fill="#2b4a7a"/><line x1="${x - 7}" y1="${y}" x2="${x + 7}" y2="${y}" stroke="#0d1a2e" stroke-width="2.5" transform="rotate(${i * 35 + 10} ${x} ${y})"/>`;
+        });
+        // balance wheel
+        const bx = 400,
+          by = 390;
+        s += `<circle cx="${bx}" cy="${by}" r="58" fill="#1a1a1a" fill-opacity=".55"/>`;
+        let spiral = "";
+        for (let a = 0; a < 6 * Math.PI * 2; a += 0.2) {
+          const r = 6 + a * 1.05;
+          spiral += `${bx + r * Math.cos(a)},${by + r * Math.sin(a)} `;
+        }
+        s += `<polyline points="${spiral}" fill="none" stroke="#c9c5bd" stroke-opacity=".7" stroke-width="1"/>
+        <g class="balance"><circle cx="${bx}" cy="${by}" r="48" fill="none" stroke="#d6c5a5" stroke-width="7"/>
+        <line x1="${bx - 48}" y1="${by}" x2="${bx + 48}" y2="${by}" stroke="#d6c5a5" stroke-width="4"/>
+        <line x1="${bx}" y1="${by - 48}" x2="${bx}" y2="${by + 48}" stroke="#d6c5a5" stroke-width="4"/>
+        ${[0, 1, 2, 3, 4, 5, 6, 7]
+          .map((i) => {
+            const a = (i * Math.PI) / 4;
+            return `<circle cx="${bx + 48 * Math.cos(a)}" cy="${by + 48 * Math.sin(a)}" r="3.5" fill="#f1e2c2"/>`;
+          })
+          .join("")}</g>
+        <circle cx="${bx}" cy="${by}" r="7" fill="#8e2234" stroke="#d9d5cd" stroke-width="3"/>
+        <text x="${bx}" y="${by + 80}" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="16" fill="#1a1a1a" fill-opacity=".7">A.M.</text>`;
+        // rotor
+        s += `<g class="rotor" id="rotor">
+          <path d="M ${C - 226} ${C} A 226 226 0 0 1 ${C + 226} ${C} L ${C + 40} ${C} A 40 40 0 0 0 ${C - 40} ${C} Z" fill="url(#rotorG)" fill-opacity=".94"/>
+          <path d="M ${C - 150} ${C} A 150 150 0 0 1 ${C + 150} ${C}" fill="none" stroke="#6b5631" stroke-opacity=".4" stroke-width="1"/>
+          <text font-family="Cormorant Garamond, serif" font-size="22" letter-spacing="8" fill="#5a4626"><textPath href="#rotorArc" startOffset="50%" text-anchor="middle">ÉRAVEL · CALIBRE E-01 · 31 RUBIS</textPath></text>
+        </g>
+        <circle cx="${C}" cy="${C}" r="30" fill="#c9c5bd"/><circle cx="${C}" cy="${C}" r="12" fill="#8e2234" stroke="#e7e3dc" stroke-width="3"/>
+      </g>
+      <circle cx="${C}" cy="${C}" r="236" fill="none" stroke="#000" stroke-opacity=".6" stroke-width="4"/>
+      <path d="M120 170 A236 236 0 0 1 420 90 Q280 150 120 170 Z" fill="#fff" fill-opacity=".1"/>
+  </svg>`;
+        document.getElementById("caseback").innerHTML = s;
+      })();
+
+      /* ---------- Scroll: header, rotor winding, reveals ---------- */
+      const hdr = document.getElementById("hdr");
+      const rotor = document.getElementById("rotor");
+      const resVal = document.getElementById("resVal"),
+        resBar = document.getElementById("resBar");
+      let lastY = scrollY,
+        angle = 0,
+        reserve = 36,
+        rotorVel = 0;
+      function setReserve() {
+        resVal.textContent = Math.round(reserve);
+        resBar.style.width = (reserve / 72) * 100 + "%";
+      }
+      setReserve();
+      addEventListener(
+        "scroll",
+        () => {
+          hdr.classList.toggle("solid", scrollY > 20);
+          const d = scrollY - lastY;
+          lastY = scrollY;
+          rotorVel += d * 0.5;
+          reserve = Math.min(72, reserve + Math.abs(d) / 90);
+          setReserve();
+        },
+        { passive: true },
+      );
+      // Rotor spins with momentum, like a real oscillating weight.
+      (function spin() {
+        rotorVel *= 0.92;
+        angle += rotorVel * 0.2;
+        rotor.setAttribute("transform", `rotate(${angle} 300 300)`);
+        requestAnimationFrame(spin);
+      })();
+      // Slow unwinding: the watch runs down while you read.
+      setInterval(() => {
+        if (reserve > 0) {
+          reserve = Math.max(0, reserve - 0.25);
+          setReserve();
+        }
+      }, 4000);
+
+      // Reveal elements below the fold only; anything visible at load stays put.
+      if ("IntersectionObserver" in window && !reduce) {
+        const io = new IntersectionObserver(
+          (es) =>
+            es.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.remove("pre");
+                io.unobserve(e.target);
+              }
+            }),
+          { rootMargin: "0px 0px -8% 0px" },
+        );
+        document.querySelectorAll(".rv").forEach((el, i) => {
+          if (el.getBoundingClientRect().top > innerHeight) {
+            el.classList.add("pre");
+            el.style.transitionDelay = (i % 3) * 0.08 + "s";
+            io.observe(el);
+          }
+        });
+      }
+
+      /* ---------- Form ---------- */
+      document.getElementById("bookForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const f = e.target,
+          name = f.querySelector("#f-name"),
+          contact = f.querySelector("#f-contact"),
+          note = document.getElementById("formNote");
+        if (!name.value.trim() || !contact.value.trim()) {
+          note.textContent =
+            "Укажите имя и телефон или e-mail, чтобы мастер мог с вами связаться.";
+          note.style.color = "var(--gold)";
+          (name.value.trim() ? contact : name).focus();
+          return;
+        }
+        f.classList.add("sent");
+        note.textContent = "Заявка отправлена в ателье (демо).";
+        note.style.color = "";
+      });
+    </script>
+  </body>
+</html>
